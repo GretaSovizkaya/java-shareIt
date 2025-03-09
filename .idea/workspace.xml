@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;внесены правки 2&quot;">
+    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;tt 16 &quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/booking/services/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/booking/services/BookingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/request/mapper/RequestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/request/mapper/RequestMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/booking/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/item/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/item/ItemClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/item/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/booking/services/BookingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/booking/services/BookingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/item/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/controller/ItemRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/controller/ItemRequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/mapper/RequestMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/mapper/RequestMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/request/repository/ItemRequestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/request/repository/ItemRequestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/user/services/BaseUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/user/services/BaseUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +51,63 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Application.ShareItApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShareItGateway.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShareItServer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShareItServerTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShareItServerTests.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ShareItTests.contextLoads.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ShareItTests.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shareit [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shareit [install].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;add-bookings&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-item-requests-and-gateway&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/desgr/ShareIT&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/desgr/ShareIT/src/main/java/org/shareIT/Main.java&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/desgr/ShareIT/server/src/test/java/user&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/desgr/ShareIT/server/src/main/java/org/shareIT/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ShareItApp">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\desgr\ShareIT\server\src\test\java\user" />
+      <recent name="C:\Users\desgr\ShareIT\server\src\main\java\item" />
+      <recent name="C:\Users\desgr\ShareIT\gateway\src\main\java\item" />
+      <recent name="C:\Users\desgr\ShareIT\gateway\src\main\java" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\desgr\ShareIT\server\src\main\resources" />
+      <recent name="C:\Users\desgr\ShareIT\server\src\main\java" />
+      <recent name="C:\Users\desgr\ShareIT\server\src\main\java\booking" />
+      <recent name="C:\Users\desgr\ShareIT\server\src\main\java\booking\dto" />
+      <recent name="C:\Users\desgr\ShareIT\gateway\src\main\java\user" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="user.controller" />
+      <recent name="request.services" />
+      <recent name="request.controller" />
+      <recent name="booking.controller" />
+      <recent name="user.services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="user" />
+      <recent name="request" />
+      <recent name="request.dto" />
+      <recent name="item.dto" />
+      <recent name="booking" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ShareItServer">
     <configuration name="ShareItApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShareItApp" />
       <module name="shareit" />
@@ -63,19 +115,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShareItTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shareit" />
+    <configuration name="ShareItGateway" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ShareItGateway" />
+      <module name="gateway" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShareItServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ShareItServer" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShareItServerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShareItTests" />
+      <option name="MAIN_CLASS_NAME" value="ShareItServerTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShareItTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shareit" />
+    <configuration name="ShareItServerTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShareItTests" />
+      <option name="MAIN_CLASS_NAME" value="ShareItServerTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -95,9 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShareItServer" />
+        <item itemvalue="JUnit.ShareItServerTests" />
+        <item itemvalue="Application.ShareItGateway" />
+        <item itemvalue="JUnit.ShareItServerTests.contextLoads" />
         <item itemvalue="Application.ShareItApp" />
-        <item itemvalue="JUnit.ShareItTests" />
-        <item itemvalue="JUnit.ShareItTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +209,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736944007868</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;внесены правки 2&quot;">
+      <option name="closed" value="true" />
+      <created>1736971374044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736971374044</updated>
+    </task>
+    <task id="LOCAL-00005" summary="&quot;final tt 16 &quot;">
+      <option name="closed" value="true" />
+      <created>1737319339138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737319339138</updated>
+    </task>
+    <task id="LOCAL-00006" summary="&quot;tt 16 &quot;">
+      <option name="closed" value="true" />
+      <created>1737386390681</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737386390681</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +251,34 @@
     <MESSAGE value="'commit again'" />
     <MESSAGE value="&quot;внесены правки&quot;" />
     <MESSAGE value="&quot;внесены правки 2&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;внесены правки 2&quot;" />
+    <MESSAGE value="&quot;final tt 16 &quot;" />
+    <MESSAGE value="&quot;tt 16 &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;tt 16 &quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shareIt-server/src/main/java/org/shareIT/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shareIt-gateway/src/main/java/org/shareIT/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gateway/src/main/java/org/shareIT/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/shareIT/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
