@@ -1,62 +1,68 @@
 package user.services;
 
 import exceptions.NotFoundException;
-import exceptions.ValidatetionConflict;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import user.dto.UserDto;
 import user.mapper.UserMapper;
 import user.model.User;
 import user.repository.UserRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
-    private final UserMapper userMapper; // Добавляем зависимость
+    UserRepository userRepository;
+    UserMapper userMapper;
 
     @Override
-    public UserDto create(UserDto newUserDto) {
-        if (userRepository.getUserByEmail(newUserDto.getEmail()).isPresent()) {
-            throw new ValidatetionConflict("Пользователь с таким email уже зарегистрирован");
-        }
-        User user = userMapper.toUser(newUserDto); // Используем экземпляр маппера
-        User createdUser = userRepository.create(user);
-        return userMapper.toUserDto(createdUser); // Используем экземпляр маппера
+    @Transactional
+    public UserDto create(UserDto userDto) {
+        User user = userMapper.toUser(userDto);
+        return userMapper.toUserDto(userRepository.save(user));
     }
 
     @Override
-    public UserDto update(long id, UserDto userUpdDto) {
-        User existingUser = userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Пользователь " + id + " не найден"));
-
-        if (userUpdDto.getEmail() != null && !userUpdDto.getEmail().equals(existingUser.getEmail())) {
-            userRepository.getUserByEmail(userUpdDto.getEmail())
-                    .ifPresent(user -> {
-                        if (user.getId() != id) {
-                            throw new ValidatetionConflict("Пользователь с таким email уже зарегистрирован");
-                        }
-                    });
+    @Transactional
+    public UserDto update(UserDto userDto) {
+        User existingUser = getUser(userDto.getId());
+        if (userDto.getEmail() != null && !userDto.getEmail().equals(existingUser.getEmail())) {
+            existingUser.setEmail(userDto.getEmail());
         }
-
-        User userToUpdate = userMapper.toUser(userUpdDto); // Используем экземпляр маппера
-        User updatedUser = userRepository.update(id, userToUpdate);
-        return userMapper.toUserDto(updatedUser); // Используем экземпляр маппера
+        if (userDto.getName() != null && !userDto.getName().equals(existingUser.getName())) {
+            existingUser.setName(userDto.getName());
+        }
+        return userMapper.toUserDto(userRepository.save(existingUser));
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
-        if (userRepository.findById(id).isEmpty()) {
-            throw new NotFoundException("Пользователь " + id + " не найден");
-        }
-        userRepository.delete(id);
+        userRepository.deleteById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserDto findById(long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Пользователь " + id + " не найден"));
-        return userMapper.toUserDto(user); // Используем экземпляр маппера
+        return userMapper.toUserDto(getUser(id));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<UserDto> getAll() {
+        return userRepository.findAll().stream()
+                .map(userMapper::toUserDto)
+                .collect(Collectors.toList());
+    }
+
+    private User getUser(long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Пользователь с id " + userId + " не найден"));
     }
 }

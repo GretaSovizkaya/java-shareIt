@@ -1,17 +1,14 @@
 package request.dto;
 
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
-public class RequestDto {
+public class ItemRequestDto {
     String description;
-    Long requestor;
+    long requestor;
     LocalDate created;
 }

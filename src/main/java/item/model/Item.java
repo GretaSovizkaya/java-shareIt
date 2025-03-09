@@ -1,19 +1,35 @@
 package item.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.persistence.*;
+import jdk.jfr.BooleanFlag;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import request.model.ItemRequest;
+import user.model.User;
 
-@Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
+@Table(name = "items", schema = "public")
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    Long ownerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
+    User owner;
+    @Column(name = "NAME", length = 200, nullable = false)
     String name;
+    @Column(length = 100, nullable = false)
     String description;
+    @BooleanFlag
+    @Column(name = "available", nullable = false)
     Boolean available;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "request_id")
     ItemRequest request;
 }

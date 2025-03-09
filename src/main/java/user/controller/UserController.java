@@ -3,18 +3,12 @@ package user.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import user.dto.UserDto;
 import user.services.UserService;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,7 +16,6 @@ import user.services.UserService;
 @RequestMapping(path = "/users")
 public class UserController {
     private final UserService service;
-
 
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> get(@PathVariable Long id) {
@@ -40,13 +33,13 @@ public class UserController {
     public ResponseEntity<UserDto> update(@PathVariable Long id,
                                           @RequestBody UserDto userDto) {
         log.info("Обновление User: {}", userDto);
-        return ResponseEntity.ok(service.update(id, userDto));
+        userDto.setId(id);
+        return ResponseEntity.ok(service.update(userDto));
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        log.info("==>Удаление User по: {}", id);
+        log.info("Удаление User по id: {}", id);
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
