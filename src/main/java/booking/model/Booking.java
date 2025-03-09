@@ -1,6 +1,5 @@
 package booking.model;
 
-import booking.BookingStatus;
 import jakarta.validation.constraints.FutureOrPresent;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -14,10 +13,10 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 public class Booking {
     @FutureOrPresent
-    final LocalDate start;
+    LocalDate start;
     @FutureOrPresent
-    final LocalDate end;
-    final long booker;
-    final long item;
-    final BookingStatus status;
+    LocalDate end;
+    Long booker;
+    Long item;
+    BookingStatus status;
 }

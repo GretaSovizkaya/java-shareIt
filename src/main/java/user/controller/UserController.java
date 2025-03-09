@@ -3,6 +3,8 @@ package user.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -23,29 +25,29 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-    public UserDto get(@PathVariable long id) {
+    public ResponseEntity<UserDto> get(@PathVariable Long id) {
         log.info("Запрос User по id: {}", id);
-        UserDto userDto = service.findById(id);
-        return userDto;
+        return ResponseEntity.ok(service.findById(id));
     }
 
-    @PostMapping()
-    public UserDto create(@RequestBody @Valid UserDto userDto) {
-        log.info("==>Создание User: {}", userDto);
-        UserDto newUserDto = service.create(userDto);
-        return newUserDto;
+    @PostMapping
+    public ResponseEntity<UserDto> create(@RequestBody @Valid UserDto userDto) {
+        log.info("Создание User: {}", userDto);
+        return ResponseEntity.status(201).body(service.create(userDto));
     }
 
     @PatchMapping("/{id}")
-    public UserDto update(@PathVariable long id, @RequestBody UserDto userDto) {
-        log.info("==>Обновление User: {}", userDto);
-        UserDto userUpdDto = service.update(id, userDto);
-        return userUpdDto;
+    public ResponseEntity<UserDto> update(@PathVariable Long id,
+                                          @RequestBody UserDto userDto) {
+        log.info("Обновление User: {}", userDto);
+        return ResponseEntity.ok(service.update(id, userDto));
     }
 
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         log.info("==>Удаление User по: {}", id);
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

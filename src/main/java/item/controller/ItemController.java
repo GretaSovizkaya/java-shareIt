@@ -5,6 +5,7 @@ import item.services.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -24,45 +25,47 @@ import java.util.Collection;
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService service;
-    static final String userParamHeader = "X-Sharer-User-Id";
+    private static final String userParamHeader = "X-Sharer-User-Id";
 
     @GetMapping("/{id}")
-    public ItemDto get(@PathVariable long id) {
-        log.info("Getting Item by id: {}", id);
-        return service.findById(id);
+    public ResponseEntity<ItemDto> get(@PathVariable Long id) {
+        log.info("Получаем предмет по id: {}", id);
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @GetMapping
-    public Collection<ItemDto> getByOwnerId(@RequestHeader(userParamHeader) long userId) {
-        log.info("Getting Items by Owner: {}", userId);
-        return service.findByOwner(userId);
+    public ResponseEntity<Collection<ItemDto>> getByOwnerId(@RequestHeader(userParamHeader) Long userId) {
+        log.info("Получаем предметы по владельцу: {}", userId);
+        return ResponseEntity.ok(service.findByOwner(userId));
     }
 
     @GetMapping("/search")
-    public Collection<ItemDto> getItemBySearch(@RequestParam String text) {
-        log.info("Searching Items with: {}", text);
-        return service.findBySearch(text);
+    public ResponseEntity<Collection<ItemDto>> getItemBySearch(@RequestParam String text) {
+        log.info("Ищем предметы по запросу: {}", text);
+        return ResponseEntity.ok(service.findBySearch(text));
     }
 
     @PostMapping
-    public ItemDto create(@RequestHeader(userParamHeader) long userId,
-                          @RequestBody @Valid ItemDto itemDto) {
-        log.info("Creating Item: {} with owner {}", itemDto, userId);
-        return service.addNewItem(itemDto, userId);
+    public ResponseEntity<ItemDto> create(@RequestHeader(userParamHeader) Long userId,
+                                          @RequestBody @Valid ItemDto itemDto) {
+        log.info("Добавляем предмет: {} с владельцем {}", itemDto, userId);
+        return ResponseEntity.ok(service.addNewItem(itemDto, userId));
     }
 
     @PatchMapping("/{itemId}")
-    public ItemDto update(@RequestHeader(userParamHeader) long userId,
-                          @PathVariable long itemId,
-                          @RequestBody ItemDto itemDto) {
-        log.info("Updating Item: {} with owner {}", itemDto, userId);
-        return service.updateItem(itemId, itemDto, userId);
+    public ResponseEntity<ItemDto> update(@RequestHeader(userParamHeader) Long userId,
+                                          @PathVariable Long itemId,
+                                          @RequestBody ItemDto itemDto) {
+        log.info("Обновляем сведения по предмету: {} вместе с владельцем {}", itemDto, userId);
+        return ResponseEntity.ok(service.updateItem(itemId, itemDto, userId));
     }
 
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable long id) {
-        log.info("Deleting Item with id: {}", id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        log.info("Удаляем предмет по айди: {}", id);
         service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }

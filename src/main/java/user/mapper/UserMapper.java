@@ -1,24 +1,15 @@
 package user.mapper;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 import user.dto.UserDto;
 import user.model.User;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserMapper {
-    public static UserDto toUserDto(User user) {
-        return new UserDto(
-                user.getId(),
-                user.getName(),
-                user.getEmail()
-        );
-    }
-    public static User toUser(UserDto userDto) {
-        return new User(
-                userDto.getId(),
-                userDto.getName(),
-                userDto.getEmail()
-        );
-    }
+@Mapper
+public interface UserMapper {
+    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+
+    UserDto toUserDto(User user);
+
+    User toUser(UserDto userDto);
 }

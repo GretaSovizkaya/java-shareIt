@@ -1,28 +1,20 @@
 package item.mapper;
 
 import item.dto.ItemDto;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import item.model.Item;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ItemMapper {
-    public static Item toItem(ItemDto itemDto, long ownerId) {
-        return new Item(itemDto.getId(),
-                ownerId,
-                itemDto.getName(),
-                itemDto.getDescription(),
-                itemDto.getAvailable(),
-                null);
-    }
+@Mapper
+public interface ItemMapper {
+    ItemMapper INSTANCE = Mappers.getMapper(ItemMapper.class);
 
+    @Mapping(target = "request", source = "request.id")
+    ItemDto toItemDto(Item item);
 
-    public static ItemDto toItemDto(Item item) {
-        return new ItemDto(item.getId(),
-                item.getName(),
-                item.getDescription(),
-                item.getAvailable(),
-                item.getRequest() != null ? item.getRequest().getId() : null);
-    }
-
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "ownerId", source = "ownerId")
+    @Mapping(target = "request", ignore = true)
+    Item toItem(ItemDto itemDto, long ownerId);
 }

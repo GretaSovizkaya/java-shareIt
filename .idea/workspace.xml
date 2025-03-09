@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="38efb84c-ef28-4f1a-84fc-23f9be85f4dd" name="Changes" comment="&quot;внесены правки&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/item/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/item/services/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -40,21 +38,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.ShareItApp.executor": "Run",
-    "JUnit.ShareItTests.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "add-controllers",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/desgr/ShareIT",
-    "onboarding.tips.debug.path": "C:/Users/desgr/ShareIT/src/main/java/org/shareIT/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.ShareItApp.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShareItTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShareItTests.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;add-controllers&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/desgr/ShareIT&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/desgr/ShareIT/src/main/java/org/shareIT/Main.java&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.ShareItTests.contextLoads">
+}</component>
+  <component name="RunManager" selected="Application.ShareItApp">
     <configuration name="ShareItApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShareItApp" />
       <module name="shareit" />
@@ -94,9 +93,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShareItApp" />
         <item itemvalue="JUnit.ShareItTests.contextLoads" />
         <item itemvalue="JUnit.ShareItTests" />
-        <item itemvalue="Application.ShareItApp" />
       </list>
     </recent_temporary>
   </component>
@@ -116,6 +115,28 @@
       <option name="presentableId" value="Default" />
       <updated>1734547586731</updated>
     </task>
+    <task id="LOCAL-00001" summary="'commit again'">
+      <option name="closed" value="true" />
+      <created>1734766628766</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734766628766</updated>
+    </task>
+    <task id="LOCAL-00002" summary="&quot;внесены правки&quot;">
+      <option name="closed" value="true" />
+      <created>1734896086328</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734896086328</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="'commit again'" />
+    <MESSAGE value="&quot;внесены правки&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;внесены правки&quot;" />
   </component>
 </project>

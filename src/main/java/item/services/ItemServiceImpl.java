@@ -16,12 +16,13 @@ import java.util.Collections;
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
     private final UserRepository userRepository;
+    private final ItemMapper itemMapper;
 
     @Override
     public ItemDto addNewItem(ItemDto newItemDto, long ownerId) {
         userRepository.findById(ownerId)
                 .orElseThrow(() -> new NotFoundException("Пользователь " + ownerId + "не найден"));
-        return ItemMapper.toItemDto(itemRepository.addNewItem(ItemMapper.toItem(newItemDto, ownerId)));
+        return itemMapper.toItemDto(itemRepository.addNewItem(itemMapper.toItem(newItemDto, ownerId)));
     }
 
     @Override
@@ -30,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
                 .orElseThrow(() -> new NotFoundException("Пользователь " + ownerId + "не найден"));
         itemRepository.findById(itemId)
                 .orElseThrow(() -> new NotFoundException("Item " + itemId + "не найден"));
-        return ItemMapper.toItemDto(itemRepository.updateItem(itemId, ItemMapper.toItem(itemUpd, ownerId)));
+        return itemMapper.toItemDto(itemRepository.updateItem(itemId, itemMapper.toItem(itemUpd, ownerId)));
     }
 
     @Override
@@ -42,7 +43,7 @@ public class ItemServiceImpl implements ItemService {
     public ItemDto findById(long itemId) {
         var item = itemRepository.findById(itemId)
                 .orElseThrow(() -> new NotFoundException("Item " + itemId + "не найден"));
-        return ItemMapper.toItemDto(item); // Return item after the first retrieval
+        return itemMapper.toItemDto(item);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class ItemServiceImpl implements ItemService {
                 .orElseThrow(() -> new NotFoundException("Пользователь " + ownerId + "не найден"));
         return itemRepository.findByOwner(ownerId)
                 .stream()
-                .map(ItemMapper::toItemDto)
+                .map(itemMapper::toItemDto)
                 .toList();
     }
 
@@ -62,7 +63,7 @@ public class ItemServiceImpl implements ItemService {
         }
         return itemRepository.findBySearch(text)
                 .stream()
-                .map(ItemMapper::toItemDto)
+                .map(itemMapper::toItemDto)
                 .toList();
     }
 }

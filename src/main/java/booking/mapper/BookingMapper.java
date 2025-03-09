@@ -1,17 +1,13 @@
 package booking.mapper;
 
 import booking.dto.BookingDto;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import booking.model.Booking;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class BookingMapper {
-    public static BookingDto toBookingDto(Booking booking) {
-        return new BookingDto(booking.getStart(),
-                booking.getEnd(),
-                booking.getItem(),
-                booking.getStatus());
+@Mapper
+public interface BookingMapper {
+    BookingMapper INSTANCE = Mappers.getMapper(BookingMapper.class);
 
-    }
+    BookingDto toBookingDto(Booking booking);
 }

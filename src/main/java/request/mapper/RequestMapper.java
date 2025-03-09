@@ -1,14 +1,10 @@
 package request.mapper;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import org.mapstruct.Mapper;
 import request.dto.RequestDto;
 import request.model.ItemRequest;
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class RequestMapper {
-    public static RequestDto toItemRequestDto(ItemRequest itemRequest) {
-        return new RequestDto(itemRequest.getDescription(),
-                itemRequest.getRequestor(),
-                itemRequest.getCreated());
-    }
+
+@Mapper(componentModel = "spring")
+public interface RequestMapper {
+    RequestDto toItemRequestDto(ItemRequest itemRequest);
 }
